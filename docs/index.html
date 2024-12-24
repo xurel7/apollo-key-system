@@ -10,16 +10,14 @@
     html, body {
       height: 100%;
       margin: 0;
-      font-family: 'Coolvetica', sans-serif;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 30%, rgba(0, 0, 0, 0.8) 80%);
+      font-family: 'Coolvetica', sans-serif; 
+      background: linear-gradient(0deg, rgba(5, 10, 20, 1) 0%, rgba(10, 15, 30, 1) 100%);
       color: #fff;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      position: relative;
-      overflow: hidden;
     }
 
     .logo {
@@ -31,19 +29,18 @@
     }
 
     h1 {
-      font-size: 5.5em;
+      font-size: 4.5em; /* Slightly smaller for balance */
       font-weight: 500;
       margin: 0;
-      letter-spacing: 0.03em;
-      z-index: 2;
-      background: transparent;
+      letter-spacing: 0.05em;
       color: #fff;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
     }
 
     a, a:visited {
       color: #fff;
-      transition: 0.3s;
       text-decoration: none;
+      transition: 0.3s;
     }
 
     a:hover {
@@ -51,27 +48,32 @@
     }
 
     button {
-      color: #f3f3f3; /* Lighter button text for better readability */
-      font-family: 'Coolvetica', sans-serif;
+      color: #f3f3f3;
+      font-family: 'Coolvetica', sans-serif; 
       font-weight: 350;
       cursor: pointer;
       padding: 12px 40px;
       border-radius: 8px;
       font-size: 17px;
-      background: rgba(29, 139, 255, 0.7);
+      background: rgba(29, 139, 255, 0.8);
       border: none;
       transition: all 0.3s ease-in-out;
       outline: none;
       margin-top: 20px;
-      box-shadow: 0 0 10px rgba(29, 139, 255, 0.4); /* Subtle glow effect */
+      box-shadow: 0 0 8px rgba(29, 139, 255, 0.3); /* Reduced glow */
       letter-spacing: 1px;
     }
 
     button:hover {
       color: #fff;
       background: rgba(29, 139, 255, 1);
-      box-shadow: 0 0 20px rgba(29, 139, 255, 0.5);
+      box-shadow: 0 0 15px rgba(29, 139, 255, 0.4); /* Soft glow */
       transform: scale(1.05); /* Slight grow on hover */
+    }
+
+    /* Add a pulse effect to grab attention */
+    button:active {
+      transform: scale(1);
     }
 
   </style>
