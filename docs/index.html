@@ -19,7 +19,7 @@
       align-items: center;
       text-align: center;
       position: relative;
-      overflow: hidden; /* Prevents the page from scrolling and cutting off */
+      overflow: hidden; /* Prevents page overflow */
     }
 
     .logo {
@@ -77,20 +77,21 @@
       color: #666666;
     }
 
-    /* Snowflakes */
+    /* Snowflakes container */
     .snowflakes {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none; /* Snowflakes won't interfere with other interactions */
-      z-index: -1; /* Place snowflakes behind content */
+      width: 100vw;  /* Ensures snowflakes cover the full viewport width */
+      height: 100vh; /* Ensures snowflakes cover the full viewport height */
+      pointer-events: none; /* Snowflakes won't interfere with clicks or other events */
+      z-index: -1; /* Ensures snowflakes appear behind other content */
     }
 
+    /* Individual snowflakes styling */
     .snowflake {
       position: absolute;
-      top: -10px;
+      top: -10px; /* Start above the screen */
       color: #fff;
       font-size: 1em;
       opacity: 0.7;
@@ -103,11 +104,11 @@
         transform: translateY(0) rotate(0deg);
       }
       100% {
-        transform: translateY(100vh) rotate(360deg);
+        transform: translateY(100vh) rotate(360deg); /* Snowflakes fall to the bottom of the screen */
       }
     }
 
-    /* Create a variation of snowflakes */
+    /* Add randomness to snowflake size and speed */
     .snowflake:nth-child(odd) {
       font-size: 1.2em;
       animation-duration: 12s;
@@ -146,7 +147,7 @@
   <script>
     // Function to generate random snowflakes
     function createSnowflakes() {
-      const numSnowflakes = 50;
+      const numSnowflakes = 50; // Number of snowflakes
       const snowflakeContainer = document.querySelector('.snowflakes');
       for (let i = 0; i < numSnowflakes; i++) {
         const snowflake = document.createElement('span');
