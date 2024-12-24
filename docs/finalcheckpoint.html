@@ -40,10 +40,11 @@
 
     h2 {
       font-size: 1.5em;
-      font-weight: 300;
+      font-weight: 250;
       margin: 0;
       color: rgba(200, 200, 200, 0.7); /* Slightly darker, lighter text */
       margin-bottom: 20px;
+      letter-spacing: 0.03em;
     }
 
     a, a:visited {
@@ -109,7 +110,7 @@
         document.getElementById('copy-btn').addEventListener('click', function(event) {
           event.preventDefault(); // Prevents navigation to the anchor link
           navigator.clipboard.writeText(key).then(() => {
-            alert('Key copied to clipboard!');
+            //alert('Key copied to clipboard!');
           }).catch(err => {
             console.error('Error copying to clipboard:', err);
           });
