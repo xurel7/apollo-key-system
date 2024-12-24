@@ -18,11 +18,31 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      overflow: hidden;
+    }
+
+    
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 60px;
+      height: auto;
+    }
+
+    
+    .header-text {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.5em;
+      font-weight: 600;
+      color: #fff;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
     }
 
     h1 {
-      font-size: 8em;
+      font-size: 4.5em;
       font-weight: 800;
       text-shadow: 0 0 30px rgba(255, 255, 255, 0.2), 0 0 70px rgba(255, 255, 255, 0.1), 0 0 100px rgba(255, 255, 255, 0.1), 2px 2px 5px rgba(0, 0, 0, 0.3);
       margin: 0;
@@ -50,7 +70,7 @@
       border: none;
       transition: color 0.3s;
       outline: none;
-      margin-top: 0;
+      margin-top: 20px;
     }
 
     button:hover {
@@ -60,56 +80,12 @@
 </head>
 <body>
   <div>
-    <h1 id="main-text">Key Checkpoint #2</h1>
+    <img src="your-image-url-here" alt="Logo" class="logo">
+    <div class="header-text">Apollo Key System</div>
+    <h1>Key Checkpoint #2</h1>
     <a href="https://linkvertise.com/919003/solar-key-checkpoint-2?o=sharing">
       <button>Go to Second Checkpoint</button>
     </a>
   </div>
-
-  <script>
-    function createConfetti() {
-      const numberOfConfetti = 30;
-      const confettiColors = ['#ff80ab', '#a2c2e3', '#ff9f00', '#85e000', '#ff005d'];
-      const container = document.body;
-      const mainText = document.getElementById('main-text');
-      const textRect = mainText.getBoundingClientRect();
-      
-      for (let i = 0; i < numberOfConfetti; i++) {
-        const confettiPiece = document.createElement('div');
-        confettiPiece.style.position = 'absolute';
-        confettiPiece.style.width = `${Math.random() * 10 + 6}px`;
-        confettiPiece.style.height = `${Math.random() * 20 + 10}px`;
-        confettiPiece.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
-        confettiPiece.style.borderRadius = '3px';
-        confettiPiece.style.animation = `confetti-fall ${Math.random() * 1.5 + 1.5}s ease-out forwards`;
-
-        const startX = Math.random() < 0.5 ? textRect.left - 50 : textRect.right + 50;
-        const startY = textRect.top + Math.random() * 50 - 50;
-        confettiPiece.style.left = `${startX}px`;
-        confettiPiece.style.top = `${startY}px`;
-
-        container.appendChild(confettiPiece);
-      }
-    }
-
-    window.onload = createConfetti;
-  </script>
-
-  <style>
-    @keyframes confetti-fall {
-      0% {
-        transform: translateY(0) translateX(0) rotate(0deg);
-        opacity: 1;
-      }
-      50% {
-        transform: translateY(150px) translateX(${Math.random() * 50 - 25}px) rotate(180deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(500px) translateX(${Math.random() * 50 - 25}px) rotate(360deg);
-        opacity: 0;
-      }
-    }
-  </style>
 </body>
 </html>
