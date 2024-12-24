@@ -39,10 +39,10 @@
     }
 
     h2 {
-      font-size: 2em;
+      font-size: 1.5em;
       font-weight: 300;
       margin: 0;
-      color: #fff;
+      color: rgba(200, 200, 200, 0.7); /* Slightly darker, lighter text */
       margin-bottom: 20px;
     }
 
@@ -90,9 +90,8 @@
     <img src="https://media.discordapp.net/attachments/1317322488094527558/1320953277449375774/New_Project_95_1.png?ex=676b791b&is=676a279b&hm=75cd83beb98c1ff6e184433fbe2ad7f1bf17c18d517b102a846e37fc09eaa9fb&=&format=webp&quality=lossless" alt="Logo" class="logo">
     <h2>Today's key is...</h2>
     <h1 id="key-display">loading today's key...</h1>
-    <button id="copy-btn">Copy to Clipboard</button>
     <a href="https://linkvertise.com/919003/solar-key-checkpoint-2?o=sharing">
-      <button>begin</button>
+      <button id="copy-btn">Copy to Clipboard</button>
     </a>
   </div>
 
@@ -101,13 +100,14 @@
     fetch('https://raw.githubusercontent.com/xurel7/apollo/refs/heads/main/Key-System/Key.txt')
       .then(response => response.text())  // Read the content of the file as text
       .then(data => {
-        // Set the content of the h1 to the value from the text file
         const key = data.trim();  // .trim() removes any extra whitespace or newlines
+
+        // Set the content of the h1 to the value from the text file
         document.getElementById('key-display').textContent = key;
 
-        // Set up the copy button
-        document.getElementById('copy-btn').addEventListener('click', function() {
-          // Copy the key to clipboard
+        // Set up the button to copy the key to the clipboard
+        document.getElementById('copy-btn').addEventListener('click', function(event) {
+          event.preventDefault(); // Prevents navigation to the anchor link
           navigator.clipboard.writeText(key).then(() => {
             alert('Key copied to clipboard!');
           }).catch(err => {
