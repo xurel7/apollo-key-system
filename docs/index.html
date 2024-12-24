@@ -19,7 +19,7 @@
       align-items: center;
       text-align: center;
       position: relative;
-      overflow: hidden;
+      overflow: hidden; /* Prevents the page from scrolling and cutting off */
     }
 
     .logo {
@@ -78,6 +78,16 @@
     }
 
     /* Snowflakes */
+    .snowflakes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none; /* Snowflakes won't interfere with other interactions */
+      z-index: -1; /* Place snowflakes behind content */
+    }
+
     .snowflake {
       position: absolute;
       top: -10px;
@@ -85,7 +95,6 @@
       font-size: 1em;
       opacity: 0.7;
       user-select: none;
-      z-index: 9999;
       animation: snow 10s linear infinite;
     }
 
@@ -122,7 +131,7 @@
     </a>
   </div>
 
-  <!-- Snowflakes elements -->
+  <!-- Snowflakes container -->
   <div class="snowflakes" aria-hidden="true">
     <span class="snowflake">❄</span>
     <span class="snowflake">❄</span>
@@ -143,14 +152,14 @@
         const snowflake = document.createElement('span');
         snowflake.classList.add('snowflake');
         snowflake.textContent = '❄';
-        snowflake.style.left = `${Math.random() * 100}vw`;
-        snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`; // Random duration between 5s to 10s
+        snowflake.style.left = `${Math.random() * 100}vw`; // Random horizontal position
+        snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`; // Random duration between 5s and 10s
         snowflake.style.animationDelay = `${Math.random() * 5}s`; // Random delay
         snowflakeContainer.appendChild(snowflake);
       }
     }
 
-    createSnowflakes();
+    createSnowflakes(); // Call the function to generate the snowflakes
   </script>
 </body>
 </html>
