@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Checkpoint #2</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
   <style>
     html, body {
       height: 100%;
@@ -19,8 +20,15 @@
       align-items: center;
       text-align: center;
       position: relative;
-      overflow: hidden; /* Prevents page overflow */
-      min-height: 100vh; /* Ensures full viewport height */
+    }
+
+    #particles-js {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Makes particles appear behind other elements */
     }
 
     .logo {
@@ -77,50 +85,6 @@
     button:hover {
       color: #666666;
     }
-
-    /* Snowflakes container */
-    .snowflakes {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;  /* Ensures snowflakes cover the full viewport width */
-      height: 100vh; /* Ensures snowflakes cover the full viewport height */
-      pointer-events: none; /* Snowflakes won't interfere with clicks or other events */
-      z-index: -1; /* Ensures snowflakes appear behind other content */
-    }
-
-    /* Individual snowflakes styling */
-    .snowflake {
-      position: absolute;
-      top: -10px; /* Start above the screen */
-      color: #fff;
-      font-size: 1em;
-      opacity: 0.7;
-      user-select: none;
-      animation: snow 10s linear infinite;
-    }
-
-    @keyframes snow {
-      0% {
-        transform: translateY(0) rotate(0deg);
-      }
-      100% {
-        transform: translateY(100vh) rotate(360deg); /* Snowflakes fall to the bottom of the screen */
-      }
-    }
-
-    /* Add randomness to snowflake size and speed */
-    .snowflake:nth-child(odd) {
-      font-size: 1.2em;
-      animation-duration: 12s;
-      animation-delay: -2s;
-    }
-
-    .snowflake:nth-child(even) {
-      font-size: 1.5em;
-      animation-duration: 15s;
-      animation-delay: -3s;
-    }
   </style>
 </head>
 <body>
@@ -133,35 +97,95 @@
     </a>
   </div>
 
-  <!-- Snowflakes container -->
-  <div class="snowflakes" aria-hidden="true">
-    <span class="snowflake">❄</span>
-    <span class="snowflake">❄</span>
-    <span class="snowflake">❄</span>
-    <span class="snowflake">❄</span>
-    <span class="snowflake">❄</span>
-    <span class="snowflake">❄</span>
-    <span class="snowflake">❄</span>
-    <span class="snowflake">❄</span>
-  </div>
+  <!-- Div for particles effect -->
+  <div id="particles-js"></div>
 
   <script>
-    // Function to generate random snowflakes
-    function createSnowflakes() {
-      const numSnowflakes = 50; // Number of snowflakes
-      const snowflakeContainer = document.querySelector('.snowflakes');
-      for (let i = 0; i < numSnowflakes; i++) {
-        const snowflake = document.createElement('span');
-        snowflake.classList.add('snowflake');
-        snowflake.textContent = '❄';
-        snowflake.style.left = `${Math.random() * 100}vw`; // Random horizontal position
-        snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`; // Random duration between 5s and 10s
-        snowflake.style.animationDelay = `${Math.random() * 5}s`; // Random delay
-        snowflakeContainer.appendChild(snowflake);
-      }
-    }
-
-    createSnowflakes(); // Call the function to generate the snowflakes
+    particlesJS('particles-js', {
+      particles: {
+        number: {
+          value: 100,
+          density: {
+            enable: true,
+            value_area: 800
+          }
+        },
+        color: {
+          value: "#ffffff"
+        },
+        shape: {
+          type: "circle",
+          stroke: {
+            width: 0,
+            color: "#000000"
+          }
+        },
+        opacity: {
+          value: 0.5,
+          random: true,
+          anim: {
+            enable: true,
+            speed: 1,
+            opacity_min: 0.1,
+            sync: false
+          }
+        },
+        size: {
+          value: 3,
+          random: true,
+          anim: {
+            enable: false,
+            speed: 4,
+            size_min: 0.1,
+            sync: false
+          }
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#ffffff",
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: "none",
+          random: false,
+          straight: false,
+          out_mode: "out",
+          bounce: false,
+          attract: {
+            enable: false,
+            rotateX: 600,
+            rotateY: 1200
+          }
+        }
+      },
+      interactivity: {
+        detect_on: "window",
+        events: {
+          onhover: {
+            enable: true,
+            mode: "repulse"
+          },
+          onclick: {
+            enable: true,
+            mode: "push"
+          }
+        },
+        modes: {
+          repulse: {
+            distance: 100,
+            duration: 0.4
+          },
+          push: {
+            particles_nb: 4
+          }
+        }
+      },
+      retina_detect: true
+    });
   </script>
 </body>
 </html>
