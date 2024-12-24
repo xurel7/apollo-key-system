@@ -69,8 +69,10 @@
   <script>
     function createConfetti() {
       const numberOfConfetti = 100;
-      const confettiColors = ['#ff0', '#f00', '#0f0', '#00f', '#ff1493'];
+      const confettiColors = ['#f1c6e5', '#b0d0d3', '#d7b9c7', '#c4e1d5', '#f0d9e3'];
       const container = document.body;
+      const mainText = document.getElementById('main-text');
+      const textRect = mainText.getBoundingClientRect();
       
       for (let i = 0; i < numberOfConfetti; i++) {
         const confettiPiece = document.createElement('div');
@@ -81,8 +83,8 @@
         confettiPiece.style.borderRadius = '5px';
         confettiPiece.style.animation = `confetti-fall ${Math.random() * 3 + 3}s linear forwards`;
 
-        const startX = Math.random() < 0.5 ? -50 : window.innerWidth + 50;
-        const startY = Math.random() * 100 + 10;
+        const startX = Math.random() < 0.5 ? textRect.left - 50 : textRect.right + 50;
+        const startY = textRect.top + Math.random() * 100 - 50;
         confettiPiece.style.left = `${startX}px`;
         confettiPiece.style.top = `${startY}px`;
 
