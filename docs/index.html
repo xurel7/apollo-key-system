@@ -68,7 +68,7 @@
 
   <script>
     function createConfetti() {
-      const numberOfConfetti = 100;
+      const numberOfConfetti = 30;
       const confettiColors = ['#f1c6e5', '#b0d0d3', '#d7b9c7', '#c4e1d5', '#f0d9e3'];
       const container = document.body;
       const mainText = document.getElementById('main-text');
@@ -77,14 +77,14 @@
       for (let i = 0; i < numberOfConfetti; i++) {
         const confettiPiece = document.createElement('div');
         confettiPiece.style.position = 'absolute';
-        confettiPiece.style.width = `${Math.random() * 15 + 5}px`;
-        confettiPiece.style.height = `${Math.random() * 30 + 10}px`;
+        confettiPiece.style.width = `${Math.random() * 20 + 10}px`;
+        confettiPiece.style.height = `${Math.random() * 30 + 15}px`;
         confettiPiece.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
         confettiPiece.style.borderRadius = '5px';
-        confettiPiece.style.animation = `confetti-fall ${Math.random() * 3 + 3}s linear forwards`;
+        confettiPiece.style.animation = `confetti-fall ${Math.random() * 1.5 + 1.5}s cubic-bezier(0.25, 0.5, 0.75, 1) forwards`;
 
         const startX = Math.random() < 0.5 ? textRect.left - 50 : textRect.right + 50;
-        const startY = textRect.top + Math.random() * 100 - 50;
+        const startY = textRect.top + Math.random() * 50 - 50;
         confettiPiece.style.left = `${startX}px`;
         confettiPiece.style.top = `${startY}px`;
 
@@ -101,12 +101,12 @@
         transform: translateY(0) translateX(0) rotate(0deg);
         opacity: 1;
       }
-      40% {
-        transform: translateY(-50px) translateX(30px) rotate(30deg);
+      50% {
+        transform: translateY(150px) translateX(${Math.random() * 50 - 25}px) rotate(180deg);
         opacity: 1;
       }
       100% {
-        transform: translateY(500px) translateX(0) rotate(720deg);
+        transform: translateY(500px) translateX(${Math.random() * 50 - 25}px) rotate(360deg);
         opacity: 0;
       }
     }
