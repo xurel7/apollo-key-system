@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Checkpoint #2</title>
+  <link href="https://fonts.cdnfonts.com/css/coolvetica" rel="stylesheet">
+  <link rel="icon" type="image/png" href="https://media.discordapp.net/attachments/1317322488094527558/1320953277449375774/New_Project_95_1.png?ex=676b791b&is=676a279b&hm=75cd83beb98c1ff6e184433fbe2ad7f1bf17c18d517b102a846e37fc09eaa9fb&=&format=webp&quality=lossless">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Coolvetica', sans-serif; 
+      background: linear-gradient(0deg, rgba(5, 10, 20, 1) 0%, rgba(10, 15, 30, 1) 100%);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 60px;
+      height: auto;
+    }
+
+    h1 {
+      font-size: 4.5em;
+      font-weight: 500;
+      margin: 0;
+      letter-spacing: 0.05em;
+      color: #fff;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+
+    a, a:visited {
+      color: #fff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    a:hover {
+      color: rgba(29,139,255,1);
+    }
+
+    button {
+      color: #f3f3f3;
+      font-family: 'Coolvetica', sans-serif; 
+      font-weight: 350;
+      cursor: pointer;
+      padding: 12px 40px;
+      border-radius: 8px;
+      font-size: 17px;
+      background: rgba(29, 139, 255, 0.8);
+      border: none;
+      transition: all 0.3s ease-in-out;
+      outline: none;
+      margin-top: 20px;
+      box-shadow: 0 0 8px rgba(29, 139, 255, 0.3);
+      letter-spacing: 1px;
+    }
+
+    button:hover {
+      color: #fff;
+      background: rgba(29, 139, 255, 1);
+      box-shadow: 0 0 15px rgba(29, 139, 255, 0.4);
+      transform: scale(1.05);
+    }
+
+    button:active {
+      transform: scale(1);
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <img src="https://media.discordapp.net/attachments/1317322488094527558/1320953277449375774/New_Project_95_1.png?ex=676b791b&is=676a279b&hm=75cd83beb98c1ff6e184433fbe2ad7f1bf17c18d517b102a846e37fc09eaa9fb&=&format=webp&quality=lossless" alt="Logo" class="logo">
+    <h1 id="key-display">apollo key system</h1>
+    <a href="https://linkvertise.com/919003/solar-key-checkpoint-2?o=sharing">
+      <button>begin</button>
+    </a>
+  </div>
+
+  <script>
+    // Fetch the text file that contains "thekey"
+    fetch('https://raw.githubusercontent.com/xurel7/apollo/refs/heads/main/Key-System/Key.txt')
+      .then(response => response.text())  // Read the content of the file as text
+      .then(data => {
+        // Set the content of the h1 to the value from the text file
+        document.getElementById('key-display').textContent = data.trim();  // .trim() removes any extra whitespace or newlines
+      })
+      .catch(error => {
+        console.error('Error fetching the key:', error);
+      });
+  </script>
+</body>
+</html>
