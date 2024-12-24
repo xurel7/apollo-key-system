@@ -31,7 +31,7 @@
     h1 {
       font-size: 5.5em;
       font-weight: 500;
-      text-shadow: 0 0 30px rgba(255, 255, 255, 0.2), 0 0 70px rgba(255, 255, 255, 0.1), 0 0 100px rgba(255, 255, 255, 0.1), 2px 2px 5px rgba(0, 0, 0, 0.3);
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.2), 0 0 50px rgba(255, 255, 255, 0.1);
       margin: 0;
       letter-spacing: 0.03em;
     }
@@ -47,23 +47,33 @@
     }
 
     button {
-      color: #999999;
+      color: #fff;
       font-family: 'Coolvetica', sans-serif; 
       font-weight: 500;
       cursor: pointer;
       padding: 12px 40px;
       border-radius: 8px;
       font-size: 17px;
-      background: transparent;
+      background: rgba(29, 139, 255, 0.7);
       border: none;
-      transition: color 0.3s;
+      transition: all 0.3s ease-in-out;
       outline: none;
       margin-top: 20px;
+      box-shadow: 0 0 15px rgba(29, 139, 255, 0.5);
     }
 
     button:hover {
-      color: #666666;
+      color: #fff;
+      background: rgba(29, 139, 255, 1);
+      box-shadow: 0 0 30px rgba(29, 139, 255, 0.7);
+      transform: scale(1.05); /* Slight grow on hover */
     }
+
+    /* Add a pulse effect to grab attention */
+    button:active {
+      transform: scale(1);
+    }
+
   </style>
 </head>
 <body>
