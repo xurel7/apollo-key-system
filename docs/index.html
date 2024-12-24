@@ -69,7 +69,7 @@
   <script>
     function createConfetti() {
       const numberOfConfetti = 30;
-      const confettiColors = ['#f1c6e5', '#b0d0d3', '#d7b9c7', '#c4e1d5', '#f0d9e3'];
+      const confettiColors = ['#ff80ab', '#a2c2e3', '#ff9f00', '#85e000', '#ff005d'];
       const container = document.body;
       const mainText = document.getElementById('main-text');
       const textRect = mainText.getBoundingClientRect();
@@ -77,11 +77,10 @@
       for (let i = 0; i < numberOfConfetti; i++) {
         const confettiPiece = document.createElement('div');
         confettiPiece.style.position = 'absolute';
-        confettiPiece.style.width = `${Math.random() * 20 + 10}px`;
-        confettiPiece.style.height = `${Math.random() * 30 + 15}px`;
+        confettiPiece.style.width = `${Math.random() * 20 + 15}px`;
+        confettiPiece.style.height = `${Math.random() * 40 + 15}px`;
         confettiPiece.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
-        confettiPiece.style.borderRadius = '5px';
-        confettiPiece.style.animation = `confetti-fall ${Math.random() * 1.5 + 1.5}s cubic-bezier(0.25, 0.5, 0.75, 1) forwards`;
+        confettiPiece.style.animation = `confetti-fall ${Math.random() * 1.5 + 1.5}s ease-out forwards`;
 
         const startX = Math.random() < 0.5 ? textRect.left - 50 : textRect.right + 50;
         const startY = textRect.top + Math.random() * 50 - 50;
